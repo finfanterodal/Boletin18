@@ -13,24 +13,26 @@ import paquete_2.Persoal;
  * @author finfanterodal
  */
 public class Academia {
+
     //Atributos
-   private static int numReferencia=2018;
-   private String nome;
-   private int nota;
-   private Persoal alum;
-   
-   //Constructores
-   public Academia() {  
-       alum=new Persoal();
+    private static int numReferencia = 2018;
+    private String nome;
+    private int nota;
+    private Persoal alum;
+
+    //Constructores
+    public Academia() {
+        numReferencia=numReferencia+1;
+        alum=new Persoal();
     }
-   //Métodos
+    //Métodos
 
     public int getNumReferencia() {
         return numReferencia;
     }
 
     public void setNumReferencia(int numReferencia) {
-        this.numReferencia = numReferencia;
+        Academia.numReferencia = numReferencia;
     }
 
     public String getNome() {
@@ -46,30 +48,26 @@ public class Academia {
     }
 
     public void setNota(int nota) {
+        do {
+            nota = Integer.parseInt(JOptionPane.showInputDialog("Introduce la nota."));
+            if (nota < 0 || nota > 10) {
+                System.out.println("La nota no es correcta.");
+            }
+        } while (nota < 0 || nota > 10);
         this.nota = nota;
     }
 
-    public Persoal getAlum() {
-        return alum;
-    }
 
-    public void setAlum(Persoal alum) {
-        this.alum = alum;
+
+    public void setAlum(String correo,String telefono) {
+        alum.setCorreo(correo);
+        alum.setTelefono(telefono);
     }
 //Visualización
 
     @Override
     public String toString() {
-        return "Academia{" + "numReferencia=" + numReferencia + ", nome=" + nome + ", nota=" + nota + ", alum=" + alum + '}';
-    }
-//Comprobación nota
-    public void comprobarNota(){
-do {
-    nota = Integer.parseInt(JOptionPane.showInputDialog("Introduce la nota."));
-    if (nota<0||nota>10){
-        System.out.println("La nota no es correcta.");
-    }
-    }while (nota<0||nota>10);
+        return "numReferencia=" + numReferencia + ", nome=" + nome + ", nota=" + nota + ", alum=" + alum;
     }
 
 }

@@ -3,19 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package boletin18;
+package notamedia;
 
 /**
  *
  * @author finfanterodal
  */
-public class Boletin18 {
+public class NotaMedia {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        NMedia nota = new NMedia();
+        nota.notaMedia();
     }
-    
+
 }
